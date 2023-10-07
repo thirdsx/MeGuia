@@ -27,6 +27,9 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup Navigation View
+        navigationItem.largeTitleDisplayMode = .always
+        
         // Setup Table View
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,9 +47,8 @@ final class ListViewController: UIViewController {
                     print("Fazer tratativa para o cenário de error ❌")
             }
         }
-        
     }
-    
+        
     private func setupTableView() {
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -69,5 +71,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController(cellModel: cellModels[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

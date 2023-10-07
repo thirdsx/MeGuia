@@ -22,6 +22,8 @@
 		CE3564172ACF7AE8009722C5 /* AccommodationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3564162ACF7AE8009722C5 /* AccommodationPresenter.swift */; };
 		CE35641A2ACF7B5C009722C5 /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3564192ACF7B5C009722C5 /* FavoritesFactory.swift */; };
 		CE35641C2ACF7BA4009722C5 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35641B2ACF7BA4009722C5 /* FavoritesPresenter.swift */; };
+		CE95F87A2AD0C4F900F19335 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95F8792AD0C4F900F19335 /* DetailViewController.swift */; };
+		CE95F87C2AD0C6DF00F19335 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95F87B2AD0C6DF00F19335 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		CE3564162ACF7AE8009722C5 /* AccommodationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationPresenter.swift; sourceTree = "<group>"; };
 		CE3564192ACF7B5C009722C5 /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
 		CE35641B2ACF7BA4009722C5 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		CE95F8792AD0C4F900F19335 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CE95F87B2AD0C6DF00F19335 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		CE3564052ACF7596009722C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE95F8782AD0C4B200F19335 /* Detail */,
 				CE35641E2ACF7CE5009722C5 /* TabBar */,
 				CE35641D2ACF7CDD009722C5 /* List */,
 				CE3564182ACF7B2E009722C5 /* Favorites */,
@@ -164,6 +169,15 @@
 				602239522AC9BC2A000D3B0A /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CE95F8782AD0C4B200F19335 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CE95F8792AD0C4F900F19335 /* DetailViewController.swift */,
+				CE95F87B2AD0C6DF00F19335 /* DetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +263,8 @@
 				CE3564122ACF7A68009722C5 /* RestaurantsPresenter.swift in Sources */,
 				CE35640A2ACF788E009722C5 /* FunFactory.swift in Sources */,
 				6076D1F32AC10EB800C9D2D1 /* SceneDelegate.swift in Sources */,
+				CE95F87C2AD0C6DF00F19335 /* DetailView.swift in Sources */,
+				CE95F87A2AD0C4F900F19335 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,13 +403,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VJCR2LL3QM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeGuia/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MeGuia;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,9 +419,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "IFCE---Aracati.MeGuia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -414,13 +435,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VJCR2LL3QM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeGuia/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MeGuia;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,9 +451,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "IFCE---Aracati.MeGuia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

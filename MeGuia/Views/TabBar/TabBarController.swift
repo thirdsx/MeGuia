@@ -6,7 +6,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         self.tabBar.tintColor = .systemOrange
-        self.tabBar.backgroundColor = .white
+        self.tabBar.backgroundColor = .systemBackground
         self.tabBar.unselectedItemTintColor = .systemGray
         
         setupTabs()
@@ -20,15 +20,13 @@ class TabBarController: UITabBarController {
         let third = navCreate(title: "Hospedagem", image: UIImage(named: "relaxarIcone"), viewController: AccommodationFactory.make())
         let fourth = navCreate(title: "Favoritos", image: UIImage(named: "favoritosIcone"), viewController: FavoritesFactory.make())
         
-        // Para usar imagens fora do sistema, importar como asset e utilizar UIImage(named: "nome.da.imagem.como.foi.colocado")
-        
         self.setViewControllers([first, second, third, fourth], animated: true)
     }
     
     private func navCreate(title: String, image: UIImage?, viewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: viewController)
         nav.navigationBar.prefersLargeTitles = true
-        nav.tabBarItem.image = image
+        viewController.tabBarItem.image = image
         viewController.title = title
         return nav
     }
