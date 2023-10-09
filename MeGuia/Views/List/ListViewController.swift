@@ -9,6 +9,7 @@ final class ListViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -33,6 +34,8 @@ final class ListViewController: UIViewController {
         // Setup Table View
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
         setupTableView()
         
         // Setup View
@@ -62,11 +65,11 @@ final class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: - Yago vai adicionar aqui a célula customizada
-        let cell = cellModels[indexPath.row]
-        let uiTableViewCell = UITableViewCell()
-        uiTableViewCell.textLabel?.text = cell.title
-        return uiTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else { return UITableViewCell() }
+        let cellModel = cellModels[indexPath.row]
+        cell.configure(with: cellModel)
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

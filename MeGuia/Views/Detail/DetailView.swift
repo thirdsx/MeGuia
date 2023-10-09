@@ -25,7 +25,7 @@ struct DetailView: View {
                 }
             }
             
-            Text(cellModel.price)
+            Text(cellModel.price.currencyFormatting())
                 .font(.title2)
                 .bold()
             
