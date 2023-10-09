@@ -10,7 +10,7 @@ final class FunPresenter: ListPresenterProtocol {
                         title: "Voo de Parapente",
                         description: "A proporciona uma vista aérea espetacular das praias, dunas e da paisagem costeira. Você poderá apreciar as cores vibrantes do mar, as formações geológicas únicas e toda a beleza natural da região de uma perspectiva única.",
                         imageURL: "defaultImage",
-                        price: "R$ 400,00",
+                        price: 400,
                         rating: 5,
                         isFavorite: false,
                         contact: "https://wa.me/5585997299103",

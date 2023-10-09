@@ -11,7 +11,7 @@ struct CellModel: Identifiable {
     let title: String
     let description: String
     let imageURL: String
-    let price: String
+    let price: Double
     let rating: Double
     let isFavorite: Bool
     let contact: String
