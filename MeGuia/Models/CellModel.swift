@@ -1,13 +1,13 @@
 import Foundation
 
-struct CellModel: Identifiable {
-    struct AdditionalInfo: Identifiable {
-        let id: UUID
+struct CellModel: Identifiable, Decodable {
+    struct AdditionalInfo: Identifiable, Decodable {
+        let id: String
         let iconName: String
         let description: String
     }
     
-    let id: UUID
+    let id: String
     let title: String
     let description: String
     let imageURL: String
