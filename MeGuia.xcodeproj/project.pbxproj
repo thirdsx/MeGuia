@@ -39,7 +39,8 @@
 		CE01CC152AF1D0B90091ED17 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE01CC142AF1D0B90091ED17 /* FirebaseRemoteConfigSwift */; };
 		CE01CC172AF1D0B90091ED17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CE01CC162AF1D0B90091ED17 /* FirebaseStorage */; };
 		CE01CC192AF1D0B90091ED17 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CE01CC182AF1D0B90091ED17 /* FirebaseStorageCombine-Community */; };
-		CE01CC1B2AF1D1460091ED17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE01CC1A2AF1D1460091ED17 /* GoogleService-Info.plist */; };
+		CE01CC2E2AF59F5B0091ED17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE01CC2D2AF59F5B0091ED17 /* GoogleService-Info.plist */; };
+		CE01CC312AF5A2E80091ED17 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01CC302AF5A2E80091ED17 /* FirestoreManager.swift */; };
 		CE3564042ACF744F009722C5 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3564032ACF744F009722C5 /* CellModel.swift */; };
 		CE3564072ACF75BC009722C5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3564062ACF75BC009722C5 /* ListViewController.swift */; };
 		CE35640A2ACF788E009722C5 /* FunFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3564092ACF788E009722C5 /* FunFactory.swift */; };
@@ -64,7 +65,8 @@
 		6076D1F92AC10EBA00C9D2D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6076D1FC2AC10EBA00C9D2D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6076D1FE2AC10EBA00C9D2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE01CC1A2AF1D1460091ED17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE01CC2D2AF59F5B0091ED17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE01CC302AF5A2E80091ED17 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		CE3564032ACF744F009722C5 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		CE3564062ACF75BC009722C5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		CE3564092ACF788E009722C5 /* FunFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunFactory.swift; sourceTree = "<group>"; };
@@ -149,7 +151,8 @@
 		6076D1EF2AC10EB800C9D2D1 /* MeGuia */ = {
 			isa = PBXGroup;
 			children = (
-				CE01CC1A2AF1D1460091ED17 /* GoogleService-Info.plist */,
+				CE01CC2D2AF59F5B0091ED17 /* GoogleService-Info.plist */,
+				CE01CC2F2AF5A2D40091ED17 /* FirestoreManager */,
 				DFF5DA402AD4B81C001F2598 /* Extensions */,
 				CE3564052ACF7596009722C5 /* Views */,
 				CE3564022ACF7407009722C5 /* Models */,
@@ -157,6 +160,14 @@
 				6076D1FE2AC10EBA00C9D2D1 /* Info.plist */,
 			);
 			path = MeGuia;
+			sourceTree = "<group>";
+		};
+		CE01CC2F2AF5A2D40091ED17 /* FirestoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				CE01CC302AF5A2E80091ED17 /* FirestoreManager.swift */,
+			);
+			path = FirestoreManager;
 			sourceTree = "<group>";
 		};
 		CE3564022ACF7407009722C5 /* Models */ = {
@@ -343,7 +354,7 @@
 			files = (
 				6076D1FD2AC10EBA00C9D2D1 /* LaunchScreen.storyboard in Resources */,
 				6076D1FA2AC10EBA00C9D2D1 /* Assets.xcassets in Resources */,
-				CE01CC1B2AF1D1460091ED17 /* GoogleService-Info.plist in Resources */,
+				CE01CC2E2AF59F5B0091ED17 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +372,7 @@
 				CE3564172ACF7AE8009722C5 /* AccommodationPresenter.swift in Sources */,
 				DFF5DA3F2AD4B2AF001F2598 /* ListCell.swift in Sources */,
 				CE35641C2ACF7BA4009722C5 /* FavoritesPresenter.swift in Sources */,
+				CE01CC312AF5A2E80091ED17 /* FirestoreManager.swift in Sources */,
 				DFF5DA422AD4B844001F2598 /* Double+.swift in Sources */,
 				602239532AC9BC2A000D3B0A /* TabBarController.swift in Sources */,
 				CE3564152ACF7AE0009722C5 /* AccommodationFactory.swift in Sources */,

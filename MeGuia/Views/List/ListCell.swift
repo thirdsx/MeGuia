@@ -27,7 +27,7 @@ final class ListCell: UITableViewCell {
         placeImage.layer.cornerCurve = .circular
         placeImage.layer.cornerRadius = 10
         placeImage.contentMode = .scaleAspectFill
-
+        placeImage.layer.masksToBounds = true
         return placeImage
     }()
 
@@ -178,9 +178,10 @@ final class ListCell: UITableViewCell {
 
     // MARK: Public methods
     public func configure(with cellModel: CellModel) {
-        self.placeTitle.text = cellModel.title
-        self.placeDescription.text = cellModel.description
-        self.placePrice.text = cellModel.price.currencyFormatting()
+        placeTitle.text = cellModel.title
+        placeDescription.text = cellModel.description
+        placePrice.text = cellModel.price.currencyFormatting()
+        placeImage.image = UIImage(named: cellModel.imageURL)
 
         addAdditionalInfoIfNeeded(cellModel.infos)
         addRatingValue(cellModel.rating)
