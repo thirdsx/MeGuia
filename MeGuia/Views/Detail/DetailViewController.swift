@@ -2,7 +2,6 @@ import UIKit
 import SwiftUI
 
 final class DetailViewController: UIViewController {
-
     private let cellModel: CellModel
     
     init(cellModel: CellModel) {
@@ -23,6 +22,8 @@ final class DetailViewController: UIViewController {
         view.addSubview(detailViewController.view)
         addChild(detailViewController)
         detailViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        //navigationItem.rightBarButtonItem = UIBarButtonItem
         
         NSLayoutConstraint.activate([
             detailViewController.view.topAnchor.constraint(equalTo: view.topAnchor),

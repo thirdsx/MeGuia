@@ -1,10 +1,3 @@
-//
-//  ListCell.swift
-//  MeGuia
-//
-//  Created by Yago Marques on 09/10/23.
-//
-
 import UIKit
 
 final class ListCell: UITableViewCell {
@@ -20,7 +13,7 @@ final class ListCell: UITableViewCell {
 
         return shape
     }()
-
+    
     private let placeImage: UIImageView = {
         let placeImage = UIImageView()
         placeImage.backgroundColor = .orange
@@ -87,7 +80,7 @@ final class ListCell: UITableViewCell {
 
     private let placeRatingImage: UIImageView = {
         let image = UIImageView()
-        image.image = .init(systemName: "star")
+        image.image = .init(systemName: "star.fill")
         image.tintColor = .orange
 
         return image
@@ -101,6 +94,7 @@ final class ListCell: UITableViewCell {
     }()
 
     // MARK: StackViews
+    
     private let headerStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -245,7 +239,7 @@ private extension ListCell {
             placeAdditionaInfoImage.heightAnchor.constraint(equalToConstant: 20),
 
             placeRatingImage.heightAnchor.constraint(equalToConstant: 20),
-            placeRatingImage.widthAnchor.constraint(equalToConstant: 20)
+            placeRatingImage.widthAnchor.constraint(equalToConstant: 20),
         ])
     }
 

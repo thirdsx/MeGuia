@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
     private func setupTabs() {
         let first = navCreate(title: "Diversão", image: UIImage(named: "diversaoIcone"), viewController: FunFactory.make())
         let second = navCreate(title: "Comer&Beber", image: UIImage(named: "comerBeberIcone"), viewController: RestaurantsFactory.make())
-        let third = navCreate(title: "Hospedagem", image: UIImage(named: "relaxarIcone"), viewController: AccommodationFactory.make())
+        let third = navCreate(title: "Relaxar", image: UIImage(named: "relaxarIcone"), viewController: AccommodationFactory.make())
         let fourth = navCreate(title: "Favoritos", image: UIImage(named: "favoritosIcone"), viewController: FavoritesFactory.make())
         
         self.setViewControllers([first, second, third, fourth], animated: true)
