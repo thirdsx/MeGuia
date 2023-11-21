@@ -13,7 +13,7 @@ struct CellModel: Identifiable, Decodable {
     let imageURL: String
     let price: Double
     let rating: Double
-    let isFavorite: Bool
+    var isFavorite: Bool
     let contact: String
     let infos: [AdditionalInfo]
 }

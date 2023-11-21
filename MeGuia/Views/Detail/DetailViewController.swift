@@ -1,8 +1,16 @@
 import UIKit
 import SwiftUI
+import FirebaseFirestore
 
 final class DetailViewController: UIViewController {
-    private let cellModel: CellModel
+    private var cellModel: CellModel
+    
+    //FAVORITE BUTTON ------------------
+    private var favoriteButton: UIBarButtonItem?
+    //private var isFavorite = false
+    private var favoriteImage: UIImage? {
+        return UIImage(named: "heart" + (cellModel.isFavorite ? ".fill" : ""))
+    }
     
     init(cellModel: CellModel) {
         self.cellModel = cellModel
@@ -23,7 +31,7 @@ final class DetailViewController: UIViewController {
         addChild(detailViewController)
         detailViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        //navigationItem.rightBarButtonItem = UIBarButtonItem
+        configureFavoriteButton()
         
         NSLayoutConstraint.activate([
             detailViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
@@ -31,5 +39,25 @@ final class DetailViewController: UIViewController {
             detailViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             detailViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func configureFavoriteButton() {
+        favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(touchedButton))
+        favoriteButton?.tintColor = .orange
+        navigationItem.rightBarButtonItem = favoriteButton
+    }
+    
+    @objc func touchedButton() {
+        //isFavorite = !isFavorite
+        cellModel.isFavorite = !cellModel.isFavorite
+        let db = Firestore.firestore()
+        db.collection("diversao").document("rzy4xCai6H8duDbQ0uRZ").setData(["isFavorite" : cellModel.isFavorite], merge: true) { err in
+            if let err = err {
+                print("error writing document: \(err)")
+            } else {
+                print("document sucessfully written!")
+            }
+        }
+        favoriteButton?.image = favoriteImage
     }
 }
