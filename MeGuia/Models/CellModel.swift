@@ -8,8 +8,10 @@ struct CellModel: Identifiable, Decodable {
     }
     
     let id: String
+    //let collection: String
     let title: String
     let description: String
+    //let detailedDescription: String
     let imageURL: String
     let price: Double
     let rating: Double
