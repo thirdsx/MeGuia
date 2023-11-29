@@ -1,7 +1,7 @@
 import Foundation
 
-struct CellModel: Identifiable, Decodable {
-    struct AdditionalInfo: Identifiable, Decodable {
+struct CellModel: Identifiable, Decodable, Encodable {
+    struct AdditionalInfo: Identifiable, Decodable, Encodable {
         let id: String
         let iconName: String
         let description: String

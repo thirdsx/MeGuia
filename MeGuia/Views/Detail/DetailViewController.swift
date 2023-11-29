@@ -4,13 +4,7 @@ import FirebaseFirestore
 
 final class DetailViewController: UIViewController {
     private var cellModel: CellModel
-    private let db = Firestore.firestore()
-    
-    //FAVORITE BUTTON ------------------
-    private var favoriteButton: UIBarButtonItem?
-    private var favoriteImage: UIImage? {
-        return UIImage(named: "heart" + (cellModel.isFavorite ? ".fill" : ""))
-    }
+    private var isFavorite = false
     
     init(cellModel: CellModel) {
         self.cellModel = cellModel
@@ -24,21 +18,6 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //tentar implementar alguma funcao para recarregar dados
-        let doc = db.collection("diversao").document("rzy4xCai6H8duDbQ0uRZ")
-
-        doc.getDocument(as: CellModel.self) { result in
-            
-            switch result {
-                case .success(let cell):
-                    print("Experience: \(cell)")
-                    self.cellModel = cell
-                    self.configureFavoriteButton()
-                case .failure(let error):
-                    print("Error decoding experience: \(error)")
-            }
-        }
-
         navigationItem.largeTitleDisplayMode = .never
 
         let detailViewController = UIHostingController(rootView: DetailView(cellModel: cellModel))
@@ -54,29 +33,54 @@ final class DetailViewController: UIViewController {
         ])
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureFavoriteButton()
+    }
+    
     private func configureFavoriteButton() {
-        favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(touchedButton))
-        favoriteButton?.tintColor = .orange
+        do {
+            let models = try UserDefaultsManager.getAll()
+            if models.contains(where: { receivedModel in
+                receivedModel.id == cellModel.id
+            }) {
+                isFavorite = true
+            } else {
+                isFavorite = false
+            }
+        } catch {
+            isFavorite = false
+        }
+        
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        let uiImage = UIImage(systemName: imageName)
+        let favoriteButton = UIBarButtonItem(image: uiImage, style: .plain, target: self, action: #selector(touchedButton))
+        favoriteButton.tintColor = .orange
         navigationItem.rightBarButtonItem = favoriteButton
     }
     
     @objc func touchedButton() {
-        //isFavorite = !isFavorite
-        
-        //Possibilidade:
-        //1-Usar RealtimeDatabase?
-        //2-Criar um campo "coleção" no BD e no CellModel -> conseguir substituir em db.collection("collection")
-        //3-Padronizar código de documentos de uma coleção com o mesmo nome do titulo -> conseguir substituir em db.colletcion("collection").document("document")
-        
-        cellModel.isFavorite = !cellModel.isFavorite
-        let db = Firestore.firestore()
-        db.collection("diversao").document("rzy4xCai6H8duDbQ0uRZ").setData(["isFavorite" : cellModel.isFavorite], merge: true) { err in
-            if let err = err {
-                print("error writing document: \(err)")
-            } else {
-                print("document sucessfully written!")
+        if isFavorite {
+            let uiImage = UIImage(systemName: "heart")
+            let favoriteButton = UIBarButtonItem(image: uiImage, style: .plain, target: self, action: #selector(touchedButton))
+            favoriteButton.tintColor = .orange
+            navigationItem.rightBarButtonItem = favoriteButton
+            do {
+                try UserDefaultsManager.remove(cellModel)
+            } catch {
+                print("Erro ao remvoer cellModel ❌")
+            }
+            
+        } else {
+            let uiImage = UIImage(systemName: "heart.fill")
+            let favoriteButton = UIBarButtonItem(image: uiImage, style: .plain, target: self, action: #selector(touchedButton))
+            favoriteButton.tintColor = .orange
+            navigationItem.rightBarButtonItem = favoriteButton
+            do {
+                try UserDefaultsManager.save(cellModel)
+            } catch {
+                print("Erro ao slavar cellModel ❌")
             }
         }
-        favoriteButton?.image = favoriteImage
     }
 }

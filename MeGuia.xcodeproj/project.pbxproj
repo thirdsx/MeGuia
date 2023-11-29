@@ -53,6 +53,7 @@
 		CE35641C2ACF7BA4009722C5 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35641B2ACF7BA4009722C5 /* FavoritesPresenter.swift */; };
 		CE95F87A2AD0C4F900F19335 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95F8792AD0C4F900F19335 /* DetailViewController.swift */; };
 		CE95F87C2AD0C6DF00F19335 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95F87B2AD0C6DF00F19335 /* DetailView.swift */; };
+		CECFC83D2B16B2F100DEBADA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFC83C2B16B2F100DEBADA /* UserDefaultsManager.swift */; };
 		DFF5DA3F2AD4B2AF001F2598 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF5DA3E2AD4B2AF001F2598 /* ListCell.swift */; };
 		DFF5DA422AD4B844001F2598 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF5DA412AD4B844001F2598 /* Double+.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		CE35641B2ACF7BA4009722C5 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		CE95F8792AD0C4F900F19335 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CE95F87B2AD0C6DF00F19335 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CECFC83C2B16B2F100DEBADA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		DFF5DA3E2AD4B2AF001F2598 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		DFF5DA412AD4B844001F2598 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				CE01CC302AF5A2E80091ED17 /* FirestoreManager.swift */,
+				CECFC83C2B16B2F100DEBADA /* UserDefaultsManager.swift */,
 			);
 			path = FirestoreManager;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				CE3564072ACF75BC009722C5 /* ListViewController.swift in Sources */,
 				CE3564102ACF7A60009722C5 /* RestaurantsFactory.swift in Sources */,
 				CE3564172ACF7AE8009722C5 /* AccommodationPresenter.swift in Sources */,
+				CECFC83D2B16B2F100DEBADA /* UserDefaultsManager.swift in Sources */,
 				DFF5DA3F2AD4B2AF001F2598 /* ListCell.swift in Sources */,
 				CE35641C2ACF7BA4009722C5 /* FavoritesPresenter.swift in Sources */,
 				CE01CC312AF5A2E80091ED17 /* FirestoreManager.swift in Sources */,

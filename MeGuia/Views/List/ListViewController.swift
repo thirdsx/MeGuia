@@ -14,6 +14,13 @@ final class ListViewController: UIViewController {
         return tableView
     }()
     
+    private let spinner: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.hidesWhenStopped = true
+        return view
+    }()
+    
     private let presenter: ListPresenterProtocol
     
     init(presenter: ListPresenterProtocol) {
@@ -37,11 +44,18 @@ final class ListViewController: UIViewController {
         tableView.backgroundColor = .systemGray6
         tableView.separatorStyle = .none
         setupTableView()
+        setupSpinner()
         
         // Setup View
         view.backgroundColor = .systemBackground
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        spinner.startAnimating()
         presenter.getCells { [weak self] result in
+            self?.spinner.stopAnimating()
             switch result {
                 case .success(let cellModels):
                     self?.cellModels = cellModels
@@ -59,6 +73,15 @@ final class ListViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+    
+    private func setupSpinner() {
+        view.addSubview(spinner)
+        spinner.bringSubviewToFront(view)
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
